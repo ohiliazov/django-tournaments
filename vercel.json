@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "django_tournaments/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "django_tournaments/wsgi.py"
+    }
+  ]
+}

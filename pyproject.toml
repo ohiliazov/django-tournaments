@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "django-tournaments"
+version = "0.1.0"
+description = "Django Tournaments"
+authors = ["Oleksandr Hiliazov <oleksandr.hiliazov@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django = "^4.2.10"
+pydantic = "^2.6.2"
+pydantic-settings = "^2.2.1"
+psycopg2-binary = "^2.9.9"
+django-allauth = "^0.61.1"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.5.0"
+setuptools = "^69.0.3"
+ruff = "^0.1.3"
+
+[tool.ruff]
+line-length = 79
+extend-select = ["I"]
+
+[tool.ruff.isort]
+combine-as-imports = true
+split-on-trailing-comma = false
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

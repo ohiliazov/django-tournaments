@@ -1,0 +1,16 @@
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://accounts.google.com/gsi/client" async></script>
+<div>
+    <h1>Hello from Vercel!</h1>
+    <p>The current time is {{ now }}.</p>
+    <a href="{% provider_login_url 'google' %}">Sign in with Google</a>
+</div>
+</body>
+</html>
