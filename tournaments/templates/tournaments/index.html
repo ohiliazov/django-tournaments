@@ -1,4 +1,8 @@
 {% load socialaccount %}
+{% if user.is_authenticated %}
+    {% get_social_accounts user as accounts %}
+{% endif %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +10,21 @@
     <title>Title</title>
 </head>
 <body>
-<script src="https://accounts.google.com/gsi/client" async></script>
 <div>
-    <h1>Hello from Vercel!</h1>
-    <p>The current time is {{ now }}.</p>
-    <a href="{% provider_login_url 'google' %}">Sign in with Google</a>
+
+    {% if user.is_authenticated %}
+        <p>Logged in</p>
+        {% if not accounts %}
+            <a href="{% provider_login_url 'google' process="connect" %}">Connect Google account</a>
+        {% else %}
+            <p>You are signed in with Google</p>
+            <a href="{% url 'account_logout' %}">Sign out</a>
+        {% endif %}
+    {% else %}
+        <a href="{% provider_login_url 'google' process="login" %}">Sign in with Google</a>
+    {% endif %}
+
+
 </div>
 </body>
 </html>
