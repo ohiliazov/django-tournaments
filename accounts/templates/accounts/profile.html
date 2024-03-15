@@ -11,5 +11,13 @@
     <h1>User Profile</h1>
     <h1>Signed in as {{ email }}</h1>
 </div>
+<div>
+    {{ form.errors }}
+    <form method="post" action="/accounts/profile/">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
 </body>
 </html>

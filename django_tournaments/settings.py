@@ -30,6 +30,10 @@ ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".ohiliazov.com"]
 # Application definition
 
 INSTALLED_APPS = [
+    # project apps
+    "accounts",
+    "tournaments",
+    # Django apps
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -41,9 +45,6 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
-    # project apps
-    "accounts",
-    "tournaments",
 ]
 
 MIDDLEWARE = [
