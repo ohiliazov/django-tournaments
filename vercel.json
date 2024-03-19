@@ -3,6 +3,11 @@
     {
       "src": "django_tournaments/wsgi.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "vercel_build.sh",
+      "use": "@vercel/static-build",
+      "config": {"distDir": "staticfiles"}
     }
   ],
   "routes": [

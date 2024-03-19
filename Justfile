@@ -2,10 +2,11 @@ help:
     just --list
 
 install:
-    poetry install --sync --no-interaction --no-root
+    poetry install --all-extras --sync --no-interaction --no-root
     poetry run pre-commit install
 
 requirements:
+    poetry lock --no-update
     poetry export -f requirements.txt -o requirements.txt --without-hashes
 
 format:
