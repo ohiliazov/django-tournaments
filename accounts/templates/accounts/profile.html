@@ -6,10 +6,40 @@
     <title>Title</title>
 </head>
 <body>
+<div>
+    <strong>Menu:</strong>
+    <ul>
+        <li><a href="/">Home Page</a></li>
+        {% if user.is_authenticated %}
+            <li>
+                <a href="{% url 'account_email' %}">Change Email</a>
+            </li>
+            <li>
+                <a href="{% url 'account_change_password' %}">Change Password</a>
+            </li>
+            <li>
+                <a href="{% url 'account_reset_password' %}">Reset Password</a>
+            </li>
+            <li>
+                <a href="{% url 'account_logout' %}">Sign Out</a>
+            </li>
+        {% else %}
+            <li>
+                <a href="{% url 'account_login' %}">Sign In</a>
+            </li>
+            <li>
+                <a href="{% url 'account_signup' %}">Sign Up</a>
+            </li>
+        {% endif %}
+    </ul>
+</div>
+<ul>
+
+</ul>
 <script src="https://accounts.google.com/gsi/client" async></script>
 <div>
     <h1>User Profile</h1>
-    <h1>Signed in as {{ email }}</h1>
+    <p>Email: {{ email }}</p>
 </div>
 <div>
     {{ form.errors }}

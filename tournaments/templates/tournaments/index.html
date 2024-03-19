@@ -11,6 +11,16 @@
 </head>
 <body>
 <div>
+    <b>Menu:</b>
+    <ul>
+        {% if user.is_authenticated %}
+            <li><a href="{% url "accounts_profile" %}">My profile</a></li>
+        {% else %}
+            <li><a href="{% url "account_login" %}">Sign In</a></li>
+        {% endif %}
+    </ul>
+</div>
+<div>
 
     {% if user.is_authenticated %}
         <p>Logged in</p>
