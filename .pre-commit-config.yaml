@@ -3,7 +3,7 @@ repos:
     hooks:
       - id: poetry-lock
         name: poetry-lock
-        entry: bash -c 'poetry lock'
+        entry: bash -c 'poetry lock --no-update'
         language: system
         files: poetry.lock
 
