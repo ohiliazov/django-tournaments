@@ -13,6 +13,12 @@ repos:
         language: system
         files: requirements.txt
 
+      - id: tailwindcss
+        name: tailwindcss
+        entry: bash -c 'npx tailwindcss -i static/css/input.css -o static/css/output.css'
+        language: system
+        files: static/css/output.css
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
     hooks:

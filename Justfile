@@ -4,6 +4,7 @@ help:
 install:
     poetry install --all-extras --sync --no-interaction --no-root
     poetry run pre-commit install
+    npm install --no-audit
 
 requirements:
     poetry lock --no-update
