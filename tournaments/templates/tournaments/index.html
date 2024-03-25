@@ -3,12 +3,6 @@
 
 {% block title %}Home Page{% endblock %}
 
-{% block navbar %}
-    {% with selected="tournaments" %}
-        {{ block.super }}
-    {% endwith %}
-{% endblock %}
-
 {% block body %}
     {% if user.is_authenticated %}
         {% get_social_accounts user as accounts %}
