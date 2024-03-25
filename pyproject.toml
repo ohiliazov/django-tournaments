@@ -6,7 +6,7 @@ authors = ["Oleksandr Hiliazov <oleksandr.hiliazov@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = ">=3.9,<4"
 django = "^4.2.10"
 pydantic = "^2.6.2"
 pydantic-settings = "^2.2.1"

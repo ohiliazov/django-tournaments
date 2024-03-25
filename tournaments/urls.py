@@ -4,5 +4,5 @@ from django.urls import path
 from tournaments.views import index
 
 urlpatterns = [
-    path("", index),
+    path("", index, name="tournaments"),
 ]

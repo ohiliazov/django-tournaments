@@ -1,49 +1,52 @@
-{% load socialaccount %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<div>
-    <strong>Menu:</strong>
-    <ul>
-        <li><a href="/">Home Page</a></li>
-        {% if user.is_authenticated %}
-            <li>
-                <a href="{% url 'account_email' %}">Change Email</a>
-            </li>
-            <li>
-                <a href="{% url 'account_change_password' %}">Change Password</a>
-            </li>
-            <li>
-                <a href="{% url 'account_reset_password' %}">Reset Password</a>
-            </li>
-            <li>
-                <a href="{% url 'account_logout' %}">Sign Out</a>
-            </li>
-        {% else %}
-            <li>
-                <a href="{% url 'account_login' %}">Sign In</a>
-            </li>
-            <li>
-                <a href="{% url 'account_signup' %}">Sign Up</a>
-            </li>
-        {% endif %}
-    </ul>
-</div>
-<div>
-    <h1>User Profile</h1>
-    <p>Email: {{ email }}</p>
-</div>
-<div>
-    {{ form.errors }}
-    <form method="post" action="/accounts/profile/">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit">Submit</button>
-    </form>
-</div>
-</body>
-</html>
+{% extends '_base.html' %}
+{% load static socialaccount %}
+
+{% block title %}My Profile{% endblock %}
+
+{% block navbar %}
+    {% with selected="profile" %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
+
+{% block body %}
+    <div>
+        <strong>Menu:</strong>
+        <ul>
+            <li><a href="/">Home Page</a></li>
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'account_email' %}">Change Email</a>
+                </li>
+                <li>
+                    <a href="{% url 'account_change_password' %}">Change Password</a>
+                </li>
+                <li>
+                    <a href="{% url 'account_reset_password' %}">Reset Password</a>
+                </li>
+                <li>
+                    <a href="{% url 'account_logout' %}">Sign Out</a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{% url 'account_login' %}">Sign In</a>
+                </li>
+                <li>
+                    <a href="{% url 'account_signup' %}">Sign Up</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+    <div>
+        <h1>User Profile</h1>
+        <p>Email: {{ email }}</p>
+    </div>
+    <div>
+        {{ form.errors }}
+        <form method="post" action="/accounts/profile/">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+{% endblock %}

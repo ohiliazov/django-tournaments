@@ -1,14 +1,20 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/output.css' %}" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css"/>
+    <link rel="stylesheet" href="{% static 'css/output.css' %}"/>
     {% block head %}{% endblock %}
-  </head>
-  <body>
-    {% block body %}{% endblock %}
-  </body>
+    <script src="{% static 'js/navbar.js' %}"></script>
+    {% block scripts %}{% endblock %}
+</head>
+<body>
+{% block navbar %}
+    {% include '_navbar/navbar.html' %}
+{% endblock %}
+{% block body %}{% endblock %}
+</body>
 </html>

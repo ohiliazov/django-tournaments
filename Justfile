@@ -13,8 +13,8 @@ requirements:
 format:
     poetry run pre-commit run --all
 
-runserver:
-    poetry run python manage.py runserver
+watch:
+    npx tailwindcss -i static/css/input.css -o static/css/output.css --watch
 
 makemigrations:
     poetry run python manage.py makemigrations

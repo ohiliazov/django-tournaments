@@ -1,19 +1,23 @@
 {% extends '_base.html' %}
-
-{% load socialaccount %}
+{% load static socialaccount %}
 
 {% block title %}Home Page{% endblock %}
+
+{% block navbar %}
+    {% with selected="tournaments" %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
 
 {% block body %}
     {% if user.is_authenticated %}
         {% get_social_accounts user as accounts %}
     {% endif %}
-
     <div>
         <b>Menu:</b>
         <ul>
             {% if user.is_authenticated %}
-                <li><a href="{% url "accounts_profile" %}">My profile</a></li>
+                <li><a href="{% url "profile" %}">My profile</a></li>
             {% else %}
                 <li><a href="{% url "account_login" %}">Sign In</a></li>
             {% endif %}
