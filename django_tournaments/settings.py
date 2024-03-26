@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env.secret_key.get_secret_value()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.debug
 
 ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".ohiliazov.com"]
 
@@ -160,3 +160,13 @@ SOCIALACCOUNT_PROVIDERS = {
         },
     }
 }
+
+# Email configuration
+if DEBUG:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+else:
+    EMAIL_USE_TLS = env.email.use_tls
+    EMAIL_HOST = env.email.host
+    EMAIL_PORT = env.email.port
+    EMAIL_HOST_USER = env.email.host_user
+    EMAIL_HOST_PASSWORD = env.email.host_password.get_secret_value()
