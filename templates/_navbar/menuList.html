@@ -1,0 +1,7 @@
+{% include '_navbar/menuItem.html' with url="tournaments" text="Tournaments" %}
+{% if user.is_authenticated %}
+    {% include '_navbar/menuItem.html' with url="profile" text="My Profile" %}
+    {% include '_navbar/menuItem.html' with url="account_logout" text="Sign Out" %}
+{% else %}
+    {% include '_navbar/menuItem.html' with url="account_login" text="Sign In" %}
+{% endif %}

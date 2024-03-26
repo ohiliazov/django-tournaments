@@ -1,0 +1,12 @@
+{% with current="bg-gray-900 text-white" default="text-gray-300 hover:bg-gray-700 hover:text-white" %}
+<a
+    href="{% url url %}"
+    {% if request.resolver_match.url_name == url %}
+    class="{{ current }} {{ classes }}"
+    aria-current="page"
+    {% else %}
+    class="{{ default }} {{ classes }}"
+    {% endif %}>
+    {{ text }}
+</a>
+{% endwith %}
