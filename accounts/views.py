@@ -28,6 +28,6 @@ def user_profile(request):
     now = datetime.now()
     return render(
         request,
-        "accounts/profile.html",
+        "account/profile.html",
         {"now": now.isoformat(), "email": request.user.email, "form": form},
     )

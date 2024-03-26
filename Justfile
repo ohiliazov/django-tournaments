@@ -16,8 +16,8 @@ format:
 watch:
     npx tailwindcss -i static/css/input.css -o static/css/output.css --watch
 
-makemigrations:
-    poetry run python manage.py makemigrations
+makemigrations app="":
+    poetry run python manage.py makemigrations {{app}}
 
 migrate:
     poetry run python manage.py migrate
